@@ -1,5 +1,5 @@
-import React, { useEffect } from 'react';
-import { compose } from 'ramda';
+import React, { useEffect, useState } from 'react';
+import { compose, inc } from "ramda";
 import {
   IonCard,
   IonCardHeader,
@@ -8,6 +8,8 @@ import {
   IonList,
   IonItem,
   IonLabel,
+  IonProgressBar,
+  IonText,
 } from '@ionic/react';
 import { useCountdown } from '../../hooks/countdown/useCountdown';
 
@@ -18,6 +20,7 @@ export const Timer = () => {
     hasTimerFinished,
     elapsedSec,
   } = useCountdown();
+  const [count, setCount] = useState(0);
   const drinkingInterval = 900;
 
   const createReminder = ({ title = null, text }) =>
@@ -28,9 +31,13 @@ export const Timer = () => {
       text: 'Consider drinking some water.',
     });
 
+  const getRemainingMinutes = () =>
+    Math.floor(drinkingInterval / 60 - elapsedSec / 60);
+
   const restartTimer = compose(
     () => startTimer(drinkingInterval),
-    createWaterDrinkingReminder
+    createWaterDrinkingReminder,
+    () => setCount(inc(count)),
   );
 
   useEffect(() => {
@@ -45,20 +52,36 @@ export const Timer = () => {
     <IonCard className="m-0 mt-5">
       <IonCardHeader>
         <IonCardTitle>
-          Timer is {hasTimerFinished ? 'stopped' : 'running'}
+          Timer is { hasTimerFinished ? 'stopped' : 'running' }
         </IonCardTitle>
       </IonCardHeader>
       <IonCardContent>
-        <IonList>
+        <IonList lines="none">
           <IonItem>
             <IonLabel>
-              Percentage: {getProgressPercentage(drinkingInterval)}%
+              <IonText>
+                <span className="font-bold text-blue-500">
+                { getRemainingMinutes() }{' '}
+                </span>
+                { getRemainingMinutes() > 1 ? 'minutes' : 'minute'}{' '}
+                left
+              </IonText>
             </IonLabel>
           </IonItem>
           <IonItem>
             <IonLabel>
-              Elapsed time since last reminder: {Math.floor(elapsedSec / 60)}{' '}
-              minutes
+              <span className="font-bold text-blue-500">
+                { count }
+              </span>{' '}
+              {count === 1 ? 'reminder' : 'reminders'} so far
+            </IonLabel>
+          </IonItem>
+          <IonItem>
+            <IonLabel>
+              <IonProgressBar
+                slot="end"
+                value={ getProgressPercentage(drinkingInterval) / 100 }
+              />
             </IonLabel>
           </IonItem>
         </IonList>
