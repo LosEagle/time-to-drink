@@ -1,0 +1,7 @@
+tabWidth = 2
+tabs = false
+semi = true
+singleQuote = true
+trailingCommas = 'es5'
+bracketSpacing = true
+arrowParens = 'avoid'
