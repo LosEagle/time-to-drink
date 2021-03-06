@@ -4,6 +4,7 @@ coverage/
 dist/*
 !dist/index.html
 !dist/manifest.json
+!dist/assets
 node_modules/
 *.log
 
