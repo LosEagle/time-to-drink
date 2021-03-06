@@ -1,11 +1,16 @@
-import React from 'react';
-import { hot } from 'react-hot-loader/root';
-import { Timer } from './components/timer/Timer.jsx';
+import React from "react";
+import { hot } from "react-hot-loader/root";
+import { IonApp } from "@ionic/react";
+import { Timer } from "./components/timer/Timer.jsx";
+import { Header } from "./components/header/Header";
 
 const App = () => (
-  <div className="container mx-auto max-w-xl">
-    <Timer />
-  </div>
+  <IonApp>
+    <div className="container mx-auto max-w-xl">
+      <Header />
+      <Timer />
+    </div>
+  </IonApp>
 );
 
 export default hot(App);
