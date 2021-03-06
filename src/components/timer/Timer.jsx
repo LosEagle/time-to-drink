@@ -49,10 +49,14 @@ export const Timer = () => {
   ]);
 
   return (
-    <IonCard className="m-0 mt-5">
+    <IonCard className="m-0">
       <IonCardHeader>
-        <IonCardTitle>
-          Timer is { hasTimerFinished ? 'stopped' : 'running' }
+        <IonCardTitle className="text-base">
+          Timer is {
+            hasTimerFinished
+              ? <span>stopped</span>
+              : <span className="text-green-600">running</span>
+          }
         </IonCardTitle>
       </IonCardHeader>
       <IonCardContent>
