@@ -1,0 +1,9 @@
+{
+  "name": "Time to drink",
+  "short_name": "TimeToDrink",
+  "start_url": "/index.html",
+  "display": "standalone",
+  "background_color": "#b45309",
+  "theme_color": "#b45309",
+  "orientation": "portrait-primary"
+}
