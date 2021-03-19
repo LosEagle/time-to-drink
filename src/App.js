@@ -6,7 +6,7 @@ import { Header } from "./components/header/Header";
 
 const App = () => (
   <IonApp>
-    <div className="container mx-auto max-w-xl">
+    <div className="container mx-auto">
       <Header />
       <Timer />
     </div>

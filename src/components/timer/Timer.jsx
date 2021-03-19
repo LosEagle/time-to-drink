@@ -49,9 +49,9 @@ export const Timer = () => {
   ]);
 
   return (
-    <IonCard className="m-0">
+    <IonCard className="m-0 text-center">
       <IonCardHeader>
-        <IonCardTitle className="text-base">
+        <IonCardTitle className="text-base text-lg mt-5">
           Timer is {
             hasTimerFinished
               ? <span>stopped</span>
@@ -59,11 +59,11 @@ export const Timer = () => {
           }
         </IonCardTitle>
       </IonCardHeader>
-      <IonCardContent>
+      <IonCardContent className="h-screen">
         <IonList lines="none">
-          <IonItem>
+          <IonItem className="text-center">
             <IonLabel>
-              <IonText>
+              <IonText className="text-lg">
                 <span className="font-bold text-blue-500">
                 { getRemainingMinutes() }{' '}
                 </span>
@@ -72,12 +72,14 @@ export const Timer = () => {
               </IonText>
             </IonLabel>
           </IonItem>
-          <IonItem>
+          <IonItem className="text-center">
             <IonLabel>
-              <span className="font-bold text-blue-500">
-                { count }
-              </span>{' '}
-              {count === 1 ? 'reminder' : 'reminders'} so far
+              <span className="text-lg">
+                <span className="font-bold text-blue-500">
+                  { count }
+                </span>{' '}
+                {count === 1 ? 'reminder' : 'reminders'} so far
+              </span>
             </IonLabel>
           </IonItem>
           <IonItem>

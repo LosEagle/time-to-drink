@@ -3,6 +3,9 @@
 coverage/
 dist/*
 !dist/index.html
+!dist/manifest.json
+!dist/assets
+!dist/service-worker.js
 node_modules/
 *.log
 
