@@ -1,8 +1,8 @@
 import React from 'react';
 
 export const Header = () => (
-  <div className="bg-yellow-700 text-gray-50 p-4">
-    <span className="text-2xl">
+  <div className="bg-blue-500 text-gray-50 p-4 border-b-1">
+    <span className="text-2xl cursor-pointer">
       Time to drink
     </span>
   </div>
