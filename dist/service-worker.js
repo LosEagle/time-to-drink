@@ -1,3 +1,11 @@
+const primaryCacheName = 'site-static';
+const assets = [
+  '/',
+  '/index.html',
+  '/bundle.js',
+  '/assets/images/icons/icon.svg'
+];
+
 self.addEventListener('install', (evt) => {
-  console.log('service worker installed');
+  caches.open(primaryCacheName).then(cache => cache.addAll(assets));
 });
